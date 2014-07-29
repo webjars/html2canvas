@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>html2canvas</artifactId>
-    <version>0.4.1</version>
+    <version>0.4.2-SNAPSHOT</version>
     <name>html2canvas</name>
     <description>WebJar for html2canvas</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
       <url>http://github.com/webjars/html2canvas</url>
       <connection>scm:git:https://github.com/webjars/html2canvas.git</connection>
       <developerConnection>scm:git:https://github.com/webjars/html2canvas.git</developerConnection>
-      <tag>html2canvas-0.4.1</tag>
+      <tag>HEAD</tag>
     </scm>
 
     <developers>
