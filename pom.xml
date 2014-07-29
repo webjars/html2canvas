@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+      <groupId>org.sonatype.oss</groupId>
+      <artifactId>oss-parent</artifactId>
+      <version>7</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <groupId>org.webjars</groupId>
+    <artifactId>html2canvas</artifactId>
+    <version>0.4.1</version>
+    <name>html2canvas</name>
+    <description>WebJar for html2canvas</description>
+    <url>http://webjars.org</url>
+
+    <licenses>
+      <license>
+        <name>Copyright (c) 2014 Niklas von Hertzen</name>
+        <url>https://github.com/niklasvh/html2canvas/blob/${project.version}/LICENSE</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+
+    <scm>
+      <url>http://github.com/webjars/html2canvas</url>
+      <connection>scm:git:https://github.com/webjars/html2canvas.git</connection>
+      <developerConnection>scm:git:https://github.com/webjars/html2canvas.git</developerConnection>
+      <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+      <developer>
+        <id>smoothreggae</id>
+        <name>george thomas</name>
+        <email>smoothreggae@users.noreply.github.com</email>
+      </developer>
+    </developers>
+
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <upstreamVersion>${project.version}</upstreamVersion>
+      <downloadUrl>https://github.com/niklasvh/html2canvas/releases/download/${upstreamVersion}</downloadUrl>
+      <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
+    </properties>
+
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>wagon-maven-plugin</artifactId>
+          <version>1.0-beta-4</version>
+          <executions>
+            <execution>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>download-single</goal>
+              </goals>
+              <configuration>
+                <url>${downloadUrl}</url>
+                <fromFile>${project.artifactId}.js</fromFile>
+                <toDir>${destinationDir}</toDir>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+      </plugins>
+    </build>
+</project>
