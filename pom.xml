@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>html2canvas</artifactId>
-    <version>0.4.1</version>
+    <version>0.4.1-SNAPSHOT</version>
     <name>html2canvas</name>
     <description>WebJar for html2canvas</description>
     <url>http://webjars.org</url>
@@ -41,7 +41,7 @@
 
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <upstreamVersion>${project.version}</upstreamVersion>
+      <upstreamVersion>0.4.1</upstreamVersion>
       <downloadUrl>https://github.com/niklasvh/html2canvas/releases/download/${upstreamVersion}</downloadUrl>
       <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
     </properties>
@@ -70,6 +70,18 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.5.1</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>sonatype-nexus-staging</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
         </plugin>
       </plugins>
     </build>
